@@ -44,32 +44,12 @@ public class ZakupkiParser {
                     Elements elements = outerElement.getElementsByAttributeValue("class", "row no-gutters registry-entry__form mr-0");
                     for (Element element : elements) {
                         System.out.println(counter++);
-                        //Тип закупки
-//                        System.out.println(element.getElementsByAttributeValue("class", "col-9 p-0 registry-entry__header-top__title text-truncate").text());
-                        System.out.println(ElementType.getElementType(element));
-                        //Номер закупки
-//                        System.out.print(element.getElementsByAttributeValue("class", "registry-entry__header-mid__number").text() + " ");
-                        System.out.print(ElementPurchaseNumber.getElementPurchaseNumber(element) + " ");
-                        //Название закупки
-//                        System.out.println(element.getElementsByAttributeValue("class", "registry-entry__body-value").text());
-                        System.out.println(ElementPurchaseName.getElementPurchaseName(element));
-                        //Ссылка на документацию
-//                        System.out.println(element.getElementsByAttributeValue("target", "_blank").attr("href"));
-                        System.out.println(ElementHREF.getElementHREF(element));
-                        //Заказчик
-//                        System.out.println(element.getElementsByAttributeValue("target", "_blank").get(2).text());
-                        System.out.println(ElementCustomer.getElementCustomer(element));
-                        //НМЦ
-//                        System.out.println("НМЦ: " + element.getElementsByAttributeValue("class", "price-block__value").text());
-                        System.out.println("НМЦ: " + ElementPrice.getElementPrice(element) + " ₽");
-                        //дата размещения
-//                        System.out.println("Дата размещения: " + element.getElementsByAttributeValue("class", "data-block__value").get(0).text());
-                        System.out.println("Дата размещения: " + ElementStartDate.getElementStartDate(element));
-                        //дата закрытия
-//                        System.out.println("Дата закрытия: " + element.getElementsByAttributeValue("class", "data-block__value").get(2).text());
-                        System.out.println("Дата закрытия: " + ElementCloseDate.getElementCloseDate(element));
-
-                        System.out.println("-----------------------------------------------------------------------------------------");
+                        Purchase purchase = new Purchase(Type.getType(element),
+                                PurchaseNumber.getPurchaseNumber(element), PurchaseName.getPurchaseName(element),
+                                HREF.getHREF(element), Customer.getCustomer(element), Price.getPrice(element),
+                                StartDate.getStartDate(element), CloseDate.getCloseDate(element)
+                                );
+                        System.out.println(purchase);
                     }
                     pageNumber++;
                 }

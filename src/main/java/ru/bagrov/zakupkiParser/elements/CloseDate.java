@@ -2,9 +2,9 @@ package ru.bagrov.zakupkiParser.elements;
 
 import org.jsoup.nodes.Element;
 
-public class ElementCloseDate {
+public class CloseDate {
 
-    public static String getElementCloseDate(Element element) {
+    public static String getCloseDate(Element element) {
         return element.getElementsByAttributeValue("class", "data-block__value").get(2).text();
     }
 }
