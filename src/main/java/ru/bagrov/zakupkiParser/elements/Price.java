@@ -9,5 +9,4 @@ public class Price {
                 .replaceAll(" ", "").replaceAll(",", ".").replaceAll("₽", ""));
         return price.toString();
     }
-
 }

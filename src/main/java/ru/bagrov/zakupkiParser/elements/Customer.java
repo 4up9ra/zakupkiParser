@@ -7,5 +7,4 @@ public class Customer {
     public static String getCustomer(Element element) {
         return element.getElementsByAttributeValue("target", "_blank").get(2).text();
     }
-
 }
